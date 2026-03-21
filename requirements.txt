@@ -6,6 +6,6 @@ plotly>=5.22
 requests
 beautifulsoup4
 lxml
+setuptools<81
 pykrx>=1.0.47
 pytz
-setuptools>=75
