@@ -1,11 +1,10 @@
 streamlit>=1.36,<2
-pandas>=2.2
-numpy>=1.26
-yfinance>=0.2.50
-plotly>=5.22
+pandas>=2.2,<3
+numpy>=1.26,<2
+yfinance>=0.2.50,<1.0
+plotly>=5.22,<6
 requests
 beautifulsoup4
 lxml
-setuptools<81
 pykrx>=1.0.47
 pytz
