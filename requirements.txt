@@ -8,3 +8,4 @@ beautifulsoup4
 lxml
 pykrx>=1.0.47,<1.2
 pytz
+setuptools<81
