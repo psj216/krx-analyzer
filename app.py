@@ -22,7 +22,7 @@ warnings.filterwarnings("ignore", message=".*use_container_width.*")
 FAV_PATH       = Path("favorites.json")
 PORTFOLIO_PATH = Path("portfolio.json")
 KR_TZ          = pytz.timezone("Asia/Seoul")
-FETCH_TIMEOUT  = 12
+FETCH_TIMEOUT  = 5
 LOOKBACK       = 180
 ATR_MULT       = 1.0
 MAX_PCT        = 0.04
@@ -162,7 +162,7 @@ def _fetch_yf(code, market):
 def fetch_prices(code: str, market: str) -> pd.DataFrame:
     s = (datetime.now(KR_TZ)-timedelta(days=730)).strftime("%Y%m%d")
     e = (datetime.now(KR_TZ)+timedelta(days=1)).strftime("%Y%m%d")
-    for fn, args in [(_fetch_pykrx,(code,s,e)), (_fetch_yf,(code,market))]:
+    for fn, args in [(_fetch_yf,(code,market)), (_fetch_pykrx,(code,s,e))]:
         with ThreadPoolExecutor(max_workers=1) as ex:
             fut = ex.submit(fn, *args)
             try:
